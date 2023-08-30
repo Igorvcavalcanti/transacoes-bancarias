@@ -45,6 +45,46 @@ public class Conta {
                 "\nNome: " + this.client.getNome() +
                 "\nCPF: " + this.client.getCpf() +
                 "\nEmail: " + this.client.getEmail() +
-                "\nSaldo " + Utils.doubleToString(this.getSaldo());
+                "\nSaldo " + Utils.doubleToString(this.getSaldo()) +
+                "\n";
     }
+
+// metodos deposita
+
+    public void depositar(Double valor){
+        if (valor > 0){
+            setSaldo(getSaldo() + valor);
+            System.out.println("Seu deposito foi realizado com sucesso!");
+        } else {
+            System.out.println("Não foi possivel realizar o depósito!");
+        }
+    }
+
+//metodo sacar
+
+    public void sacar(Double valor){
+        if (valor > 0 && this.getSaldo() >= valor){
+            setSaldo(getSaldo() - valor);
+            System.out.println("Saque realizado com sucesso!!");
+        } else {
+            System.out.println("Não foi possível realizar o saque!");
+        }
+    }
+
+//metodo transferir
+
+    public void transferir(Conta contaParaDeposito, Double valor){
+        if (valor > 0 && this.getSaldo() >= valor){
+            setSaldo(getSaldo() - valor);
+
+            contaParaDeposito.saldo = contaParaDeposito.getSaldo() + valor;
+            System.out.println("Transferência realizada com sucesso!");
+        } else {
+            System.out.println("Não foi possível realizar a transferência!");
+        }
+    }
+
+
+
+
 }
