@@ -39,7 +39,7 @@ public class AgenciaBancaria {
                 saque();
                 break;
             case 4:
-                transferir();
+                transferencia();
                 break;
             case 5:
                 listar();
@@ -126,4 +126,26 @@ public class AgenciaBancaria {
     }
 
 
+// metodo transferencia
+    public static void transferencia(){
+        System.out.println("Numero da conta do remetente: ");
+        int numeroContaRemetente = input.nextInt();
+
+        Conta contaRemetente = encontrarConta(numeroContaRemetente);
+
+        if(contaRemetente != null){
+            System.out.println("Numero da conta destinatario: ");
+            int numeroContaDestinatario = input.nextInt();
+
+            Conta contaDestinatario = encontrarConta(numeroContaDestinatario);
+
+            if (contaDestinatario != null){
+                System.out.println("Valor da transferência: ");
+                Double valor = input.nextDouble();
+
+                contaRemetente.transferir(contaDestinatario, valor);
+            }
+        }
+        operacoes();
+    }
 }
