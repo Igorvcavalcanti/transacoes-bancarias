@@ -55,6 +55,8 @@ public class AgenciaBancaria {
         }
     }
 
+
+// metodo para criar conta
     public static void criarConta() {
         System.out.println("\nNome: ");
         String nome = input.next();
@@ -72,5 +74,19 @@ public class AgenciaBancaria {
         System.out.println("conta criada com sucesso!");
         operacoes();
     }
+
+
+// metodo para encontrar conta existente
+    private static Conta encontrarConta(int numeroConta){
+        Conta conta = null;
+        if(contasBancarias.size() > 0){
+            for(Conta c: contasBancarias){
+                if (c.getNumeroDaConta() == numeroConta);
+                conta = c;
+            }
+        }
+        return conta;
+    }
+
 
 }
