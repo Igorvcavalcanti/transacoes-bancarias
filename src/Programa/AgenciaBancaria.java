@@ -77,12 +77,13 @@ public class AgenciaBancaria {
 
 
 // metodo para encontrar conta existente
-    private static Conta encontrarConta(int numeroConta){
+    private static Conta encontrarConta(int numeroConta) {
         Conta conta = null;
-        if(contasBancarias.size() > 0){
-            for(Conta c: contasBancarias){
-                if (c.getNumeroDaConta() == numeroConta);
-                conta = c;
+        if (contasBancarias.size() > 0) {
+            for (Conta c : contasBancarias) {
+                if (c.getNumeroDaConta() == numeroConta){
+                    conta = c;
+                }
             }
         }
         return conta;
@@ -118,7 +119,6 @@ public class AgenciaBancaria {
             System.out.println("Qual valor deseja sacar? ");
             Double valorSaque= input.nextDouble();
             conta.sacar(valorSaque);
-            System.out.println("Valor sacado com sucesso!");
         } else {
             System.out.println("Conta não encontrada!");
         }
@@ -144,8 +144,23 @@ public class AgenciaBancaria {
                 Double valor = input.nextDouble();
 
                 contaRemetente.transferir(contaDestinatario, valor);
+            } else {
+                System.out.println("A conta para depósito não foi encontrada");
             }
+        } else {
+            System.out.println("Conta para transferencia não encontrada");
         }
         operacoes();
+    }
+
+// metodo listar contas
+    public static void listar(){
+        if (contasBancarias.size() > 0){
+            for(Conta conta: contasBancarias){
+                System.out.println(conta);
+            }
+            }else {
+                System.out.println("Não há contas cadastradas");
+        }
     }
 }
