@@ -36,7 +36,7 @@ public class AgenciaBancaria {
                 deposito();
                 break;
             case 3:
-                sacar();
+                saque();
                 break;
             case 4:
                 transferir();
@@ -100,6 +100,25 @@ public class AgenciaBancaria {
             Double valorDeposito = input.nextDouble();
             conta.depositar(valorDeposito);
             System.out.println("Valor depositado com sucesso!");
+        } else {
+            System.out.println("Conta não encontrada!");
+        }
+        operacoes();
+    }
+
+
+// metodo saque
+    public static void saque(){
+        System.out.println("Numero da conta: ");
+        int numeroConta = input.nextInt();
+
+        Conta conta = encontrarConta(numeroConta);
+
+        if(conta != null){
+            System.out.println("Qual valor deseja sacar? ");
+            Double valorSaque= input.nextDouble();
+            conta.sacar(valorSaque);
+            System.out.println("Valor sacado com sucesso!");
         } else {
             System.out.println("Conta não encontrada!");
         }
