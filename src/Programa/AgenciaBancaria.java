@@ -51,7 +51,26 @@ public class AgenciaBancaria {
             default:
                 System.out.println("Opção inválida");
                 operacoes();
+                break;
         }
+    }
+
+    public static void criarConta() {
+        System.out.println("\nNome: ");
+        String nome = input.next();
+
+        System.out.println("\nCPF: ");
+        String cpf = input.next();
+
+        System.out.println("\nEmail: ");
+        String email = input.next();
+
+        Client client = new Client(nome , cpf, email);
+        Conta conta = new Conta(client);
+        contasBancarias.add(conta);
+
+        System.out.println("conta criada com sucesso!");
+        operacoes();
     }
 
 }
