@@ -58,6 +58,3 @@ Se desejar contribuir com melhorias, siga estas etapas:
    ```
 5. Abra um Pull Request.
 
-## Licença
-Este projeto está licenciado sob a [MIT License](LICENSE).
-
